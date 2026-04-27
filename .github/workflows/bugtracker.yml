@@ -10,6 +10,8 @@ jobs:
 
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      GITHUB_ISSUE_TITLE: ${{ github.event.issue.title }}
+      GITHUB_ISSUE_BODY: ${{ github.event.issue.body }}
 
     steps:
       - name: Checkout Repository
