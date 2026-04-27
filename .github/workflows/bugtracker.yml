@@ -1,0 +1,23 @@
+name: Issue Trigger Action
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Show Issue Details
+        run: |
+          echo "New Issue Raised!"
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Body: ${{ github.event.issue.body }}"
+          echo "Created By: ${{ github.event.issue.user.login }}"
+
+      - name: Run Python Script
+        run: python3 agent.py
